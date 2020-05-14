@@ -1,0 +1,72 @@
+package edu.snu.csne.ds;
+
+import java.util.Random;
+
+public class EfficiencyTesting
+{
+	Random rd = new Random();
+	
+	BubbleSorter<Integer> bubble = new BubbleSorter<>();
+	MergeSorter<Integer> merge = new MergeSorter<>();
+	ShellSorter<Integer> shell = new ShellSorter<>();
+	
+	public Integer[] getRandomArray( int n )
+	{
+		Integer[] array = new Integer[ n ];
+		for ( int i = 0 ; i < n ; i ++ )
+		{
+			array[ i ] = rd.nextInt();	
+		}
+		return array;
+	}
+	
+	// test efficiency for each method w/ random arrays
+	public void getEfficiencies()
+	{
+		// small n
+		for ( int n = 2 ; n <= 600 ; n += 2 )
+		{
+			/*
+			 * for each size array n, print resulting 
+			 * execution time in nanoseconds for each method
+			 */
+			Integer[] array = getRandomArray( n );
+			
+			long b = bubble.getExecTimeBubble( array ) / 1000;
+			long m = merge.getExecTimeMerge( array ) / 1000;
+			long s = shell.getExecTimeShell( array ) / 1000;
+			
+			System.out.println( "For n = " + n );
+			System.out.println( "BSE: " + b +
+					", MSE: " + m +
+					", SSE: " + s );
+			System.out.println();
+		}
+		
+		// same, but for large n
+		for ( int n = 2 ; n <= 31255 ; n *= 5 )
+		{
+			Integer[] array = getRandomArray( n );
+			
+			long b = bubble.getExecTimeBubble( array ) / 1000;
+			long m = merge.getExecTimeMerge( array ) / 1000;
+			long s = shell.getExecTimeShell( array ) / 1000;
+			
+			System.out.println( "For n = " + n );
+			System.out.println( "BSE: " + b +
+					", MSE: " + m +
+					", SSE: " + s );
+			System.out.println();
+		}
+		
+		System.out.println("for 20k");
+		Integer[] array = getRandomArray( 20000 );
+		long b = bubble.getExecTimeBubble( array ) / 1000;
+		long m = merge.getExecTimeMerge( array ) / 1000;
+		long s = shell.getExecTimeShell( array ) / 1000;
+		
+		System.out.println( "BSE: " + b +
+				", MSE: " + m +
+				", SSE: " + s );
+	}
+}

@@ -1,0 +1,96 @@
+package edu.snu.csne.ds;
+
+public class ToeSubstates
+{
+	
+	/*
+	 * Start with a board state. Now, consider all of the next
+	 * potential moves by a player.
+	 * What we're attempting to do is find all final substates of each
+	 * board. Then, find the EV of each move by finding the average number of
+	 * points won by each player (+5pts if win, -5 if lose).
+	 * 
+	 * We need to find a method to input a board and find all substates
+	 * of that board. Once we do that, we can find the EV of each move
+	 */
+	
+	
+	/*
+	 * create ToeBoard
+	 */
+	ToeBoard board = new ToeBoard();
+	
+	/*
+	 * determines if a board is a substate board of another.
+	 * this method will ultimately be important as we need to know
+	 * if a board falls under another as a substate for dictionary
+	 * classification
+	 * 
+	 * @return boolean
+	 */
+	private boolean isSubstate( ToeBoard earlyBoard, ToeBoard potentialSubBoard )
+	{
+		/*
+		 * if we find a spot in the early board that is not null
+		 * and the corresponding spot in the new board is not the same
+		 * value, is not substate
+		 */
+		for ( int n = 0 ; n < 9 ; n ++ )
+		{
+			// if we've found a spot to check
+			if ( earlyBoard.getSpot(n) != null )
+			{
+				// and spots don't match
+				if ( earlyBoard.getSpot(n) != potentialSubBoard.getSpot(n) )
+				{
+					// can't be subBoard
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	
+	/*
+	 * this method generates (one) board that is "one step" ahead
+	 * of any given board. using this method ensures that all subboards
+	 * associated with a given board is a subboard.
+	 * 
+	 * to reiterate, a subboard is a board that is at a node in the game
+	 * tree in the same branch as the input board
+	 */
+	private void generateOneStepSubboards( ToeBoard inputBoard )
+	{
+		/*
+		 * go through all spaces until empty is found, 
+		 * then put X if appropriate, O otherwise
+		 */
+		int index = 0;
+		// find index of first null space
+		while( inputBoard.getSpot(index) != null )
+		{
+			index++;
+		}
+		// make sure game is not over
+		if (!inputBoard.isGameOver())
+		{
+			if (inputBoard.isXNextToAct())
+			{
+				inputBoard.addX(index);
+			}
+			else
+			{
+				inputBoard.addO(index);
+			}
+		}
+	}
+	
+	/*
+	 * resets board to previous gameState
+	 */
+	private void resetGameState( String[] previousBoard )
+	{
+		
+	}
+}

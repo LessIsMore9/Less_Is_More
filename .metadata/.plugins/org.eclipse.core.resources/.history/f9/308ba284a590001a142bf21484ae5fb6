@@ -1,0 +1,74 @@
+package edu.snu.csne.ds;
+
+import java.util.HashMap;
+
+public class BoardDictionary
+{
+	/*
+	 * dictionary that contains entries (String[] arrayBoard, int index)
+	 * where board is the current game state and index is the 
+	 * index of the 1d arrayBoard where the player should mointe next
+	 */
+	HashMap< ArrayToeBoard, Integer > boardDict =
+				new HashMap< ArrayToeBoard, Integer >();
+	
+	
+	
+	/*
+	 * function to build and store all boards
+	 */
+	public BoardDictionary()
+	{
+		
+	}
+	
+	public ArrayToeBoard addEntry( ArrayToeBoard board, int bestMove )
+	{
+		boardDict.put( board, bestMove );
+		return board;
+	}
+	
+	public void addAllBoards()
+	{
+		
+	}
+	
+	public void buildToeDictionary()
+	{
+		// addAllBoards
+	}
+
+	@SuppressWarnings("hiding")
+	private class Entry<ToeBoard, Integer>
+	{
+		// stores ToeBoardey and intalue intariables
+		private ToeBoard _ToeBoard;
+		private int _value;
+		
+		private Entry(ToeBoard ToeBoard, int value)
+		{
+			// update the ToeBoard:int 
+			_ToeBoard = ToeBoard;
+			_value = value;
+		}
+		
+		// returns ToeBoardey
+		private ToeBoard getToeBoard()
+		{
+			return _ToeBoard;
+		}
+		
+		// returns intalue
+		private int getintalue()
+		{
+			return _value;
+		}
+		
+		// sets intalue
+		private int setintalue(int intalue)
+		{
+			_value = intalue;
+			return _value;
+		}
+	}
+}

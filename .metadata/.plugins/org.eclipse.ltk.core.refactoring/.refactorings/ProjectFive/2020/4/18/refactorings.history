@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;edu.snu.csne.ds.NiceListADT&apos; to &apos;LinkedNiceListADT&apos;&#x0D;&#x0A;- Original project: &apos;ProjectFive&apos;&#x0D;&#x0A;- Original element: &apos;edu.snu.csne.ds.NiceListADT&apos;&#x0D;&#x0A;- Renamed element: &apos;edu.snu.csne.ds.LinkedNiceListADT&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;NiceListADT&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;edu.snu.csne.ds{NiceListADT.java[NiceListADT" matchStrategy="1" name="LinkedNiceListADT" qualified="false" references="true" similarDeclarations="false" stamp="1588095783458" textual="false" version="1.0"/>
+</session>

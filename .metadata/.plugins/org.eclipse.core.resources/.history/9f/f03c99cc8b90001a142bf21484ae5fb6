@@ -1,0 +1,12 @@
+package edu.snu.csne.ds;
+
+public class GetBestMove implements BestMove
+{
+
+	@Override
+	public int getBestMove(ToeBoard board)
+	{
+		return board.getNullIndex();
+	}
+
+}

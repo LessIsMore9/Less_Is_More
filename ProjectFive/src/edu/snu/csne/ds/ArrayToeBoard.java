@@ -1,0 +1,197 @@
+package edu.snu.csne.ds;
+
+
+/*
+ * the ToeBoard class represents an array implementation of a tic-tac-toe board.
+ * the ToeBoard is a 1d array of size 9, one spot for each gap in the board.
+ */
+public class ArrayToeBoard
+{
+	// board is array of String type for possible "X" "O" or null
+	private String[] b;
+	// int tracking number of empty spots
+	private int numberOfOpens;
+	
+	/*
+	 * constructor with custom size not necessary as ToeBoard has fixed number of spots
+	 */
+	
+	// default constructor
+	public ArrayToeBoard()
+	{
+		// create arrayBoard
+		String[] _board = new String[9];
+		// assign board to the array for use
+		b = _board;
+		numberOfOpens = 9;
+	}
+	
+	
+	/*
+	 * below are small utility methods to help with board assessments
+	 */
+	public void addX( int index )
+	{
+		b[ index ] = "X";
+		numberOfOpens--;
+	}
+	
+	public void addO( int index )
+	{
+		b[ index ] = "O";
+		numberOfOpens--;
+	}
+	
+	public int getNumX()
+	{
+		int num = 0;
+		for ( int i = 0 ; i < 9 ; i ++ )
+		{
+			if ( b[i] == "X" )
+			{
+				num++;
+			}
+		}
+		return num;
+	}
+	
+	public int getNumO()
+	{
+		int num = 0;
+		for ( int i = 0 ; i < 9 ; i ++ )
+		{
+			if ( b[i] == "0" )
+			{
+				num++;
+			}
+		}
+		return num;
+	}
+	
+	/*
+	 * to find items at certain spots in substate class,
+	 * we need to have a way to return those values
+	 */
+	public String getSpot( int index )
+	{
+		return b[ index ];
+	}
+	
+	private int getNumEmpty()
+	{
+		return numberOfOpens;
+	}
+	
+	
+	
+	/*
+	 * this method determines if there is a winning "three in a row" on b
+	 * 
+	 * @return boolean
+	 */
+	public boolean isThreeInARow()
+	{
+		// check rows for TIAR
+		if ( (b[0].equals(b[1]) && b[1].equals(b[2]) ) && 
+				(b[1] != null) )
+		{
+			return true;
+		}
+		else if ( (b[3].equals(b[4]) && b[4].equals(b[5]) ) && 
+				(b[4] != null) )
+		{
+			return true;
+		}
+		if ( (b[6].equals(b[7]) && b[7].equals(b[8]) ) && 
+				(b[7] != null) )
+		{
+			return true;
+		}
+		
+		// check columns for TIAR
+		if ( (b[0].equals(b[3]) && b[3].equals(b[6]) ) && 
+				(b[0] != null) )
+		{
+			return true;
+		}
+		else if ( (b[1].equals(b[4]) && b[4].equals(b[7]) ) && 
+				(b[4] != null) )
+		{
+			return true;
+		}
+		if ( (b[2].equals(b[5]) && b[5].equals(b[8]) ) && 
+				(b[5] != null) )
+		{
+			return true;
+		}
+		
+		// check diagonals for TIAR
+		if ( (b[0].equals(b[4]) && b[4].equals(b[8]) ) && 
+				(b[4] != null) )
+		{
+			return true;
+		}
+		if ( (b[2].equals(b[4]) && b[4].equals(b[6]) ) && 
+				(b[4] != null) )
+		{
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * determines if the game is over
+	 * 
+	 * @return boolean
+	 */
+	public boolean isGameOver()
+	{
+		// all spaces full, or there's 3 in a row
+		if ( numberOfOpens == 0 )
+		{
+			// game is over
+			return true;
+		}
+		return isThreeInARow();
+	}
+	
+	/*
+	 * determines if it's player X's turn to act at a given state. this is necessary
+	 * because this is what allows us to know whether an X or O should be placed next
+	 * 
+	 * @return 
+	 */
+	public boolean isXNextToAct()
+	{
+		// if board is empty (start of game)
+		if ( getNumEmpty() == 9 )
+		{
+			return true;
+		}
+		// or even number of moves taken,
+		else if ( ( getNumEmpty() % 2 ) == 1 )
+		{
+			// X is NTA
+			return true;
+		}
+		return false;
+	}
+	
+	/*
+	 * @return index of first available spot
+	 */
+	public int getNullIndex()
+	{
+		for ( int i = 0 ; i < 0 ; i ++ )
+		{
+			if ( b[i] == null )
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+	
+	
+}

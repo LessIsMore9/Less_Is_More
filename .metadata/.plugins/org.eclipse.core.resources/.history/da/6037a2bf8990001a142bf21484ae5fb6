@@ -1,0 +1,77 @@
+package edu.snu.csne.ds;
+
+/*
+ * interface for the NiceListADT
+ * 
+ * NiceListADT contains entries of type < name , list >
+ * 
+ * further description of each method is in the implementation class
+ * 
+ * @author Josh Lessner
+ */
+public interface NiceListADT
+{
+	/*
+	 * adds (name, list) to the end of the unsorted linked NiceListADT
+	 * 
+	 * precondition - user must pass arguments of type String, ArrayList<String>
+	 * postcondition - method adds entry to the NiceListADT
+	 * 
+	 * @param newName - the name (key) to be added
+	 * 					must be of type String
+	 * 					must not be null
+	 * @param newList - the list to be added, associated with newName
+	 * 					must be of type ListADT<String>
+	 * 					may be null
+	 * @throws IllegalArgumentException if parameter conditions not met
+	 * @return void
+	 */
+	public void add( String newName, ListADT<String> newList );
+	
+	/*
+	 * removes (name, list) from the NiceListADT
+	 * 
+	 * preconditions - user must pass string, dictionary must not be empty
+	 * postconditions - method removes name/corresponding list and returns the name,
+	 * 					or returns null if name is not contained in the dictionary
+	 * 
+	 * @param name - identifying key for entry to be removed
+	 * 				 may not be null
+	 * @throws IllegalArgumentException if name is null,
+	 * 									name is not String type,
+	 * 									or name is not in dictionary
+	 * @return ListADT<String> list associated with name
+	 */
+	public ListADT<String> remove( String name );
+	
+	/*
+	 * clears dicitonary by eleminating firstNode's nextNode reference,
+	 * setting firstNode to null and reverts dictionary size back to zero
+	 * 
+	 * preconditions - none
+	 * postconditions - empty dictionary
+	 * 
+	 * @return void
+	 */
+	public void clear();
+	
+	/*
+	 * replace specified entry with new entry
+	 * 
+	 * preconditions - name cannot be null, newList must be of type ListADT<String> or be null,
+	 * 					and NiceListADT must contain newName index
+	 * postconditions - List w/ given name will be replaced with the newList
+	 * 
+	 * @param newName - replace entry w given newName
+	 *					cannot be null
+	 * @param newList - replace current list with newList
+	 * 					may be null
+	 * @throws IllegalArgumentException if param conditions not met
+	 */
+	public String replace( String newName , ListADT<String> newList );
+	public ListADT<String> getList( String givenName );
+	public boolean contains( String name );
+	public int getLength();
+	public boolean isEmpty();
+	public String toFormattedString();
+}

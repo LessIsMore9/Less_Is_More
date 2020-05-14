@@ -1,0 +1,23 @@
+package edu.snu.csne.ds;
+
+/*
+ * interface for the NiceListADT
+ * 
+ * NiceListADT contains entries of type < name , list >
+ * 
+ * further description of each method is in the implementation class
+ * 
+ * @author Josh Lessner
+ */
+public interface NiceListADT
+{
+	public void add( String newName, ListADT<String> newList );
+	public ListADT<String> remove( String name );
+	public void clear();
+	public String replace( String newName , ListADT<String> newList );
+	public ListADT<String> getList( String givenName );
+	public boolean contains( String name );
+	public int getLength();
+	public boolean isEmpty();
+	public String toFormattedString();
+}

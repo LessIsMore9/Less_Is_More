@@ -1,0 +1,24 @@
+package edu.snu.csne.ds;
+
+import java.util.HashMap;
+
+public class BoardDictionary
+{
+	/*
+	 * dictionary that contains entries (String[] arrayBoard, int index)
+	 * where board is the current game state and index is the 
+	 * index of the 1d arrayBoard where the player should move next
+	 */
+	HashMap< ToeBoard, Integer > boardDict =
+				new HashMap< ToeBoard, Integer >();
+	
+	
+	
+	/*
+	 * function to build and store all boards
+	 */
+	public BoardDictionary()
+	{
+		
+	}
+}

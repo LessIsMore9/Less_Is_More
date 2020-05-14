@@ -1,0 +1,5 @@
+package edu.snu.csne.ds;
+
+public interface ToeBoardInterface {
+
+}

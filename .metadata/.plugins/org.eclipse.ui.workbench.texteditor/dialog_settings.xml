@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="selection" value="int"/>
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="false"/>
+		<item key="wholeword" value="false"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<list key="findhistory">
+			<item value="V"/>
+			<item value="K"/>
+			<item value="board"/>
+			<item value="_hashArray"/>
+			<item value="T"/>
+			<item value="getCard"/>
+			<item value="LinkedDictionaryADT"/>
+			<item value="_totalEntries"/>
+			<item value="locateIndex"/>
+			<item value="_dictionary"/>
+			<item value="quadratic"/>
+			<item value="linear"/>
+			<item value="probing"/>
+			<item value="probe"/>
+			<item value="ArrayDictionaryADT"/>
+		</list>
+		<list key="replacehistory">
+			<item value="int"/>
+			<item value="ToeBoard"/>
+			<item value="b"/>
+			<item value="hash"/>
+			<item value="N"/>
+			<item value="ArrayOpenDictionaryADT"/>
+			<item value="numberOfEntries"/>
+			<item value="_dict"/>
+			<item value="getArrayIndex"/>
+			<item value="LinkedDictionaryADT"/>
+			<item value="&quot;0104&quot;"/>
+			<item value="&quot;0103&quot;"/>
+			<item value="&quot;0102&quot;"/>
+			<item value="_banana"/>
+			<item value="_dog"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="1064"/>
+		<item key="DIALOG_Y_ORIGIN" value="298"/>
+		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_HEIGHT" value="391"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>
